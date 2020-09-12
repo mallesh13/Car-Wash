@@ -1,0 +1,110 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<div id="bgf"><br>
+    <marquee behavior="scroll" direction="left" scrollamount="9">Orders which are in pending status can Cancel or Reshedule</marquee>
+    <div style="background-color: white;height: auto;">
+    <div class="container">
+        <div class="col-md-4" style="width: 27%;" >
+            <div class="panel panel-primary">
+                <div class="panel-heading" style="background-color: rgba(157, 255, 59, 0.842);height: 60px;">
+                    <div class="row">
+                        <div class="col-md-8 text-center">
+                            <div class="huge" style="font-size:30px;"></div>
+                            <h5 style="color: black;">Payment Towards UnderProcess Orders</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer" style="height:145px">
+                    <form (ngSubmit)="towardsPayment()" #underprocessForm="ngForm">
+                        <p style="font-weight: bold;">Select OrderNo:</p>
+                        <select class="form-control mb-4" id="orderNo" name="orderNo" [(ngModel)]="info.orderNo">
+                            <option>Select</option>
+                            <option *ngFor="let order of underProcessOrders">{{order.orderNo}}</option>
+                        </select>
+                        <button class="btn btn-info btn-block my-4">Proceed to Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="width: 27%;" >
+            <div class="panel panel-primary">
+                <div class="panel-heading" style="background-color:  rgba(255, 59, 59, 0.842);">
+                    <div class="row">
+                        <div class="col-md-8 text-center">
+                            <div class="huge" style="font-size:30px;"></div>
+                            <h4 style="color: black;">Cancel Order </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer" style="height:145px">
+                    <form (ngSubmit)="cancelOrder()" #underprocessForm="ngForm">
+                        <p style="font-weight: bold;">Select OrderNo:</p>
+                        <select class="form-control mb-4" id="cancelOrderNo" name="orderNo">
+                            <option>Select</option>
+                            <option *ngFor="let order of pendingOrders">{{order.orderNo}}</option>
+                        </select>
+                        <button class="btn btn-info btn-block my-4">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="float: right;margin-right: -2cm;width: 28%;">
+            <div class="panel panel-primary">
+                <div class="panel-heading" style=" background-color: #CDE4F2;">
+                    <div class="row">
+                        <div class="col-md-8 text-center">
+                            <div class="huge" style="font-size:30px;"></div>
+                            <h4 style="color: black;">Reshedule Order </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer" style="height:185px">
+                    <form (ngSubmit)="resheduleOrder()" #underprocessForm="ngForm">
+                        <p style="font-weight: bold;">Select OrderNo:</p>
+                        <select class="form-control mb-4" id="resheduleOrderNo" name="orderNo" >
+                            <option>Select</option>
+                            <option *ngFor="let order of pendingOrders">{{order.orderNo}}</option>
+                        </select>
+                        <input type="date" class="form-control mb-4" id="resheduleDate" name="date">
+                        <button class="btn btn-info btn-block my-4">Reshedule</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-info" style="width:70%; margin-left: 1cm; margin-top: 7cm; ">
+            <div class="panel-heading">
+                <div class="panel-title">Current Orders :</div>
+            </div>
+            <table class="table table-light">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">OrderNo</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Plan</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Maker</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Status</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let order of orders">
+                    <tr>
+                        <td>{{order.orderNo}}</td>
+                        <td>{{order.name}}</td>
+                        <td>{{order.plan}}</td>
+                        <td>{{order.date}}</td>
+                        <td>{{order.maker}}</td>
+                        <td>{{order.model}}</td>
+                        <td><button class="button button3" active>{{order.status}}</button></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>

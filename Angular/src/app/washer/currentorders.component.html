@@ -1,0 +1,56 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+</head>
+<header id="header" class="fixed-top">
+    <div class="container d-flex">
+        <div class="logo mr-auto">
+            <a href="#"><img src="../assets/images/logo.jpg" alt="" class="img-fluid"></a>
+        </div>
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a routerLink="/washer/home">Home</a></li>
+                <li class="drop-down"><a>My Profile</a>
+                    <ul>
+                        <li><a routerLink="#">View/Edit Profile</a></li>
+                        <li><a routerLink="/presentorders">Current Orders</a></li>
+
+                    </ul>
+                </li>
+                <li><a routerLink="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="body"><br>
+    <div class="panel panel-info" style="width:70%; margin-left: 4cm;">
+        <div class="panel-heading">
+            <div class="panel-title">Present Orders :</div>
+        </div>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Order No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Maker</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let order of allOrdersInfo">
+                <tr>
+                    <td>{{order.orderNo}}</td>
+                    <td>{{order.name}}</td>
+                    <td>{{order.address}}</td>
+                    <td>{{order.maker}}</td>
+                    <td>{{order.model}}</td>
+                    <td>{{order.date}}</td>
+                    <td>{{order.status}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+</head>
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xl-6 col-lg-7" data-aos="fade-right">
+        <img src="../assets/images/car1.jpg" class="img-fluid" alt="">
+      </div>
+      <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0"><br><br>
+        <h3>Deep Car Wash for
+          <span class="spinny-words">
+            <span>Clean</span>
+            <span>Shiny</span>
+            <span>Sparkling</span>
+            <span>Clean</span>
+            <span>Shiny</span>
+            <span>Sparkling</span>
+          </span></h3>
+        <div class="icon-box">
+          <br>
+          <i class="bx bx-receipt"></i>
+          <h4>Deep CarWash</h4>
+          <p>is a brand which is literally going to change the way people think about car cleaning. It is a unique
+            mechanized car cleaning concept where cars are getting pampered by the latest equipments including high
+            pressure cleaning machines, spray injection and extraction machines, high powered vacuum cleaners, steam
+            cleaners and so on.</p>
+        </div>
+
+        <div class="icon-box">
+          <i class="bx bx-cube-alt"></i>
+          <h4></h4>
+          <p>Deep Car Wash is here to stay and work dedicatedly towards spreading the awareness among car users about
+            their car hygiene habits, cleanliness, durability of exterior look and other common cleaning tips.</p>
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<br><br><br>
+
+<div class="container"><br><br><br>
+  <h3>Deep Car Wash plans</h3>
+  <div class="container-fluid"><br><br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-3" *ngFor="let plan of plansData" >
+          <div class="panel panel-primary">
+            <div class="panel-heading"  style="background-color: grey;">
+              <div class="row" >
+                <div class="huge" style="font-size:18px;margin-left: 1.5cm;">{{plan.planName}}</div>
+              </div>
+            </div>
+            <div class="panel-footer" style="height:35px;">
+              <i class="far fa-money-bill-alt" style="margin-left: 2cm;"></i>&nbsp;
+              <span>{{plan.price}}</span>
+            </div>
+            <div class="panel-footer" style="height:35px;">
+              <i class="fas fa-clock" style="margin-left: 1.5cm;" ></i>&nbsp;
+              <span>{{plan.duration}}&nbsp;mins. </span>
+            </div>
+            
+            <div class="panel-footer" style="height:135px">
+              <span>{{plan.description}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

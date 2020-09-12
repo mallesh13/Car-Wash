@@ -1,0 +1,155 @@
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<div id="bob">
+<div class="row">
+<div class="col-75">
+    <div class="container">
+        <form (ngSubmit)="paymentMethod()" #paymentForm="ngForm">
+
+            <div class="row">
+                <div class="col-50">
+                    <h3>Payment</h3>
+                    <div class="col-sm-12">
+                        <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                        <input type="text" id="fname" name="firstname" #firstname="ngModel"
+                            [(ngModel)]="payments.firstname" placeholder="John M. Doe" required
+                            pattern="[a-zA-Z][a-zA-Z ]+"
+                            [class.is-invalid]="firstname.touched && firstname.invalid" />
+                        <div *ngIf="firstname.errors && firstname.touched">
+                            <div class="text-danger" *ngIf="firstname.errors?.required">
+                                Name is required
+                            </div>
+                            <div class="text-danger" *ngIf="firstname.errors?.pattern">
+                                Only alphabets allowed
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-12">
+                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="text" id="email" name="email" [(ngModel)]="payments.email"
+                            placeholder="john@example.com" required #email="ngModel"
+                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                            [class.is-invalid]="email.touched && email.invalid" />
+                        <div *ngIf="email.errors && email.touched">
+                            <div class="text-danger" *ngIf="email.errors?.required">
+                                Email is required
+                            </div>
+                            <div class="text-danger" *ngIf="email.errors?.pattern">
+                                Email format should be
+                                <small><b>john@abc.com</b></small>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-sm-12">
+                        <label for="adr"><i class="fa fa-bank-card-o"></i>Name of Bank</label>
+                        <input type="text" id="adr" name="bankname" #bankname="ngModel"
+                            [(ngModel)]="payments.bankname" placeholder="State Bank Of India" required
+                            pattern="[a-zA-Z][a-zA-Z ]+"
+                            [class.is-invalid]="bankname.touched && bankname.invalid" />
+                        <div *ngIf="bankname.errors && bankname.touched">
+                            <div class="text-danger" *ngIf="bankname.errors?.required">
+                                Bank Name is required
+                            </div>
+                            <div class="text-danger" *ngIf="bankname.errors?.pattern">
+                                Only alphabets allowed
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-50">
+                            <label for="expmonth">Exp Month</label>
+                            <input type="text" id="expmonth" name="expmonth" [(ngModel)]="payments.expmonth"
+                                placeholder="01" pattern="^\d{2}$" #expmonth="ngModel" required
+                                [class.is-invalid]="expmonth.touched && expmonth.invalid" />
+                            <div *ngIf="expmonth.errors && expmonth.touched">
+                                <div class="text-danger" *ngIf="expmonth.errors?.required">
+                                    Month is required
+                                </div>
+                                <div class="text-danger" *ngIf="expmonth.errors?.pattern">
+                                    Should be number format of 2 digits
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-50">
+                            <label for="expyear">Exp Year</label>
+                            <input type="text" id="expyear" name="expyear" [(ngModel)]="payments.expyear"
+                                placeholder="2018" pattern="^\d{4}$" #expyear="ngModel" required
+                                [class.is-invalid]="expyear.touched && expyear.invalid" />
+                            <div *ngIf="expyear.errors && expyear.touched">
+                                <div class="text-danger" *ngIf="expyear.errors?.required">
+                                    Year is required
+                                </div>
+                                <div class="text-danger" *ngIf="expyear.errors?.pattern">
+                                    Should contain 4 digits
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-50">
+
+                    <label for="fname">Accepted Cards</label>
+                    <div class="icon-container">
+                        <i class="fa fa-cc-visa" style="color:navy;"></i>
+                        <i class="fa fa-cc-amex" style="color:blue;"></i>
+                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                        <i class="fa fa-cc-discover" style="color:orange;"></i>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="cname">Name on Card</label>
+                        <input type="text" id="cname" name="cardname" [(ngModel)]="payments.cardname"
+                            placeholder="John More Doe" required #cardname="ngModel" pattern="[a-zA-Z][a-zA-Z ]+"
+                            [class.is-invalid]="cardname.touched && cardname.invalid" />
+                        <div *ngIf="cardname.errors && cardname.touched">
+                            <div class="text-danger" *ngIf="cardname.errors?.required">
+                                Card Name is required
+                            </div>
+                            <div class="text-danger" *ngIf="cardname.errors?.pattern">
+                                Only alphabets allowed
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="ccnum">Credit card number</label>
+                        <input type="text" id="ccnum" name="cardnumber" [(ngModel)]="payments.cardnumber"
+                            placeholder="1111-4444-1212-1313" pattern="^\d{16}$" #cardnumber="ngModel" required
+                            [class.is-invalid]="cardnumber.touched && cardnumber.invalid" />
+                        <div *ngIf="cardnumber.errors && cardnumber.touched">
+                            <div class="text-danger" *ngIf="cardnumber.errors?.required">
+                                Card number is required
+                            </div>
+                            <div class="text-danger" *ngIf="cardnumber.errors?.pattern">
+                                Only numbers allowed and sholud contain 16 digits
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-50">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" [(ngModel)]="payments.cvv" placeholder="352"
+                            pattern="^\d{3}$" #cvv="ngModel" required
+                            [class.is-invalid]="cvv.touched && cvv.invalid" />
+                        <div *ngIf="cvv.errors && cvv.touched">
+                            <div class="text-danger" *ngIf="cvv.errors?.required">
+                                CVV number is required
+                            </div>
+                            <div class="text-danger" *ngIf="cvv.errors?.pattern">
+                                Only numbers allowed and sholud contain 3 digits
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Continue to checkout" class="btn" [disabled]="paymentForm.form.invalid">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>

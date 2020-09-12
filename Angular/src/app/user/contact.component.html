@@ -1,0 +1,97 @@
+<section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>We are here to help you with of your queries. Get support by call or email or submit your feedback/complaints regarding our products and services to our experts for further course of action.</p>
+        <p>Please fill in your details in below contact from for getting prompt response.</p>
+      </div>
+
+      <div class="row no-gutters justify-content-center" data-aos="fade-up">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="email mt-4">
+                <i class="fas fa-envelope"></i>
+              <h4>Email:</h4>
+              <p>deepwash@gmail.com</p>
+            </div>
+
+            <div class="phone mt-4">
+             <i class="fas fa-phone"></i>
+              <h4>Call:</h4>
+              <p>+91 98765 43210 </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+     <div class="row mt-5 justify-content-center" data-aos="fade-up">
+        <div class="col-lg-10">
+          <form (ngSubmit)="registerFeedback()" method="post" role="form" #contactForm="ngForm">
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input type="text" class="form-control" name="name" #name="ngModel"
+                                [(ngModel)]="contact.name" placeholder="Your Name" required
+                                pattern="[a-zA-Z][a-zA-Z ]+"
+                                [class.is-invalid]="name.touched && name.invalid" />
+                            <div *ngIf="name.errors && name.touched">
+                                <div class="text-danger" *ngIf="name.errors?.required">
+                                    Name is required
+                                </div>
+                                <div class="text-danger" *ngIf="name.errors?.pattern">
+                                    Only alphabets allowed
+                                </div>
+                            </div>
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="email" class="form-control" placeholder="email" [(ngModel)]="contact.email"
+                            name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                            #email="ngModel" [class.is-invalid]="email.touched && email.invalid" />
+                        <div *ngIf="email.errors && email.touched">
+                            <div class="text-danger" *ngIf="email.errors?.required">
+                                Email is required
+                            </div>
+                            <div class="text-danger" *ngIf="email.errors?.pattern">
+                                Email format should be
+                                <small><b>john@abc.com</b></small>
+                            </div>
+                        </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" #subject="ngModel"
+                                [(ngModel)]="contact.subject" placeholder="Subject" required
+                                pattern="[a-zA-Z][a-zA-Z ]+"
+                                [class.is-invalid]="subject.touched && subject.invalid" />
+                            <div *ngIf="subject.errors && subject.touched">
+                                <div class="text-danger" *ngIf="subject.errors?.required">
+                                    Subject is required
+                                </div>
+                                <div class="text-danger" *ngIf="subject.errors?.pattern">
+                                    Only alphabets allowed
+                                </div>
+                            </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                      #message="ngModel" [(ngModel)]="contact.message" required 
+                      pattern="[a-zA-Z0-9 ][A-Za-z0-9._- ]*"
+                      [class.is-invalid]="message.touched && message.invalid">
+                    </textarea>
+                    
+                  <div class="text-danger" *ngIf="message.errors?.pattern">
+                      Only alphabets allowed
+                  </div>
+            </div>
+            
+            <div class="text-center"><button type="submit">Send Message</button></div>
+            <a routerLink="/contact"></a>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>

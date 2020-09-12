@@ -1,0 +1,38 @@
+ <header id="header" class="fixed-top">
+    <div class="container d-flex">
+      <div class="logo mr-auto">
+        <!-- <h1 class="text-light"><a href="">Car Wash</a></h1> -->
+        <a href="#"><img src="../assets/images/logo.jpg" alt="" class="img-fluid"></a>
+      </div>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li *ngIf="!loginService.isUserLoggedIn()" class="active"><a routerLink="">Home</a></li>
+          <li *ngIf="loginService.isUserLoggedIn()" class="active"><a routerLink="/welcome">Home</a></li>
+          <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/about">About Us</a></li>
+          <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login">Book a Wash</a></li>
+          <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/booking">Book a Wash</a></li>
+          <li class="drop-down" *ngIf="!loginService.isUserLoggedIn()"><a>Sign in</a>
+            <ul>
+              <li><a *ngIf="!loginService.isUserLoggedIn()"  routerLink="/login">User</a></li>
+              <li><a *ngIf="!loginService.isUserLoggedIn()"  routerLink="/washerlogin">Washer</a></li>
+            </ul>
+          </li>
+          <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/contact">Contact Us</a></li>
+          <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/contact">Contact Us</a></li>
+          <li class="drop-down" *ngIf="loginService.isUserLoggedIn()"><a>My Profile</a>
+            <ul>
+              <li><a *ngIf="loginService.isUserLoggedIn()"  routerLink="/update">View Profile</a></li>
+              <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/getcardetails">Car Details</a></li>
+              <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/currentorders">Current Orders</a></li>
+              <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/pastorders">Past Orders</a></li>
+              <li><a *ngIf="loginService.isUserLoggedIn()"  routerLink="/logout">Logout</a></li>
+            </ul>
+          </li>
+         
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <marquee *ngIf="!loginService.isUserLoggedIn()" behavior="scroll" direction="left" scrollamount="9">To Access Features of DEEP Car Wash ... You need to login...!</marquee>
+
+<router-outlet></router-outlet>

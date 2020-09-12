@@ -1,0 +1,168 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+</head>
+
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex">
+        <div class="logo mr-auto">
+            <a href="#"><img src="../assets/images/logo.jpg" alt="" class="img-fluid"></a>
+        </div>
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a routerLink="/admin">Home</a></li>
+                <li><a routerLink="/addwasher">Add Washer</a></li>
+                <li><a routerLink="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="body"> <br>
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-18">
+                    <div class="col-md-2">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <i class="" style="font-size:60px;"></i>
+                                    </div>
+                                    <div class="col-md-8 text-right">
+                                        <div class="huge" style="font-size:30px"></div>
+                                        <div>Pending Orders</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer" style="height:35px">
+                                <a routerLink="/pendingorders"><span class="pull-left">View Details</span>
+                                    <span class="pull-right">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                    </span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <i class="" style="font-size:60px;"></i>
+                                    </div>
+                                    <div class="col-md-8 text-right">
+                                        <div id="totalVideos" class="huge" style="font-size:30px"></div>
+                                        <div>Accepted Orders</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer" style="height:35px">
+                                <a routerLink="/acceptedorders"><span class="pull-left">View Details</span>
+                                    <span class="pull-right">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                    </span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <i class="" style="font-size:60px;"></i>
+                                    </div>
+                                    <div class="col-md-8 text-right">
+                                        <div id="totalVideos" class="huge" style="font-size:30px"></div>
+                                        <div>UnderProcess Orders</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer" style="height:35px">
+                                <a routerLink="/underprocess"><span class="pull-left">View Details</span>
+                                    <span class="pull-right">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                    </span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <i class="" style="font-size:60px;"></i>
+                                    </div>
+                                    <div class="col-md-8 text-right">
+                                        <div id="totalVideos" class="huge" style="font-size:30px"></div>
+                                        <div>Completed Orders</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer" style="height:35px">
+                                <a routerLink="/completedorders"><span class="pull-left">View Details</span>
+                                    <span class="pull-right">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                    </span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <i class="" style="font-size:60px;"></i>
+                                    </div>
+                                    <div class="col-md-8 text-right">
+                                        <div class="huge" style="font-size:30px"></div>
+                                        <div>Canceled Orders</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer" style="height:35px">
+                                <a routerLink="/canceledorders"><span class="pull-left">View Details</span>
+                                    <span class="pull-right">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                    </span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info" style="width:70%; margin-left: 4cm;">
+        <div class="panel-heading">
+            <div class="panel-title" style="font-weight: bold;">Accepted Orders By Washer:</div>
+        </div>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Order No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Plan</th>
+                    <th scope="col">Date</th>
+                    <!-- <th scope="col">Washer Email</th> -->
+                </tr>
+            </thead>
+            <tbody  >
+                
+                <tr *ngFor="let order of allOrders">
+                    <!-- <ng-container *ngFor="let res of result"> -->
+                    <td>{{order.orderNo}}</td>
+                    <td>{{order.name}}</td>
+                    <td>{{order.plan}}</td>
+                    <td>{{order.date}}</td>
+                    <!-- <td>{{res.washerEmail}}</td>
+                </ng-container> -->
+                </tr>
+            
+            </tbody>
+
+        </table>
+    </div>
+
+
+</div>

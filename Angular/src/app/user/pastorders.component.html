@@ -1,0 +1,38 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<div id="bgf"><br>
+
+    <div class="panel panel-info" style="width:70%; margin-left: 5cm; ">
+        <div class="panel-heading">
+            <div class="panel-title">Past Orders :</div>
+        </div>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">OrderNo</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Plan</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Maker</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Status</th>
+
+                </tr>
+            </thead>
+            <tbody *ngFor="let order of info">
+                <tr>
+                    <td>{{order.orderNo}}</td>
+                    <td>{{order.name}}</td>
+                    <td>{{order.plan}}</td>
+                    <td>{{order.date}}</td>
+                    <td>{{order.maker}}</td>
+                    <td>{{order.model}}</td>
+                    <td><button class="button button3" active>{{order.status}}</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

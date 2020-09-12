@@ -1,0 +1,85 @@
+<div id="bgs"><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 mobile_view_width_wrap">
+                <div id="form_editor">
+                    <div id="form_container">
+                        <div class="form-content-wrap" style="background-color: rgb(255, 254, 237);">
+                            <div id="formHeader" class="form-header"
+                                style="padding: 0px; background-color: rgb(87, 148, 70);">
+                                <img id="logoImage" style="width: 100%;"
+                                    src="https://s3-us-west-2.amazonaws.com/formgetassets/form-images/header/20153_h_83841.png">
+                            </div>
+                            <div style="background-color: rgb(255, 254, 237);">
+                                <div style="margin-top:20px;margin-bottom:10px;" id="div_0" title="Heading"
+                                    class="view_wrapper"><span class="form_area para  element">
+                                        <h2 id="text_element17" style="font-family: Poppins;text-align: center;">Car
+                                            Wash Service Form</h2>
+                                    </span>
+                                </div>
+                                <div style="margin-top:20px;margin-bottom:10px" id="div_1" title="Paragraph"
+                                    class="view_wrapper"><span class="form_area para element">
+                                        <div id="text_element18" style="font-family: Lato;text-align: center;">
+                                            Check out the different services provided and fill out the form below to get
+                                            started.</div>
+                                    </span>
+                                </div>
+                                <div class="hrDive">
+                                    <hr class="hrBorderTop" id="hr_element19">
+                                </div>
+                                <form class="text-center border border-light p-5" #bookingForm="ngForm"
+                                    (ngSubmit)="booking()">
+
+                                    <input type="text" class="form-control mb-4" placeholder="Enter Name"
+                                        [(ngModel)]="book.name" name="name" required>
+                                    <input type="number" class="form-control mb-4" placeholder="Contact Number"
+                                        [(ngModel)]="book.number" name="number" required>
+                                    <textarea type="text" class="form-control mb-4" placeholder="Address" name="address"
+                                        rows="3" [(ngModel)]="book.address" required></textarea>
+                                    <p style="text-align:start; font-weight: bold;">Order No:</p>
+                                    <select class="form-control mb-4" [(ngModel)]="book.orderNo" name="orderNo" required>
+                                        <option>Select</option>
+                                        <option>{{text}}</option>
+                                    </select>
+                                    <p style="text-align:start; font-weight: bold;">Vehicle Info:</p>
+                                    <select class="form-control mb-4" [(ngModel)]="book.maker" name="maker" required>
+                                        <option>Select</option>
+                                        <option>Audi</option>
+                                        <option>BMW</option>
+                                        <option>Ford</option>
+                                        <option>Hyundai</option>
+                                        <option>Suzuki</option>
+                                        <option>Honda</option>
+                                        <option>Toyota</option>
+                                    </select>
+                                    <input type="text" class="form-control mb-4" placeholder="Vehicle Model"
+                                        name="model" [(ngModel)]="book.model" required>
+                                    <select class="form-control mb-4" [(ngModel)]="book.color" name="color" required>
+                                        <option>Select</option>
+                                        <option>Red</option>
+                                        <option>Blue</option>
+                                        <option>Black</option>
+                                        <option>Silver</option>
+                                        <option>White</option>
+                                        <option>Purpule</option>
+                                        <option>Others</option>
+                                    </select>
+                                    <p style="text-align:start;font-weight: bold;">Select Service:</p>
+                                    <select class="form-control mb-4" name="plan" [(ngModel)]="book.plan" required>
+                                        <option>Select</option>
+                                        <option *ngFor="let Plans of totalPlans">{{Plans.planName}}
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rs.{{Plans.price}}
+                                        </option>
+                                    </select>
+                                    <input type="date" class="form-control mb-4" placeholder="Date of Reservation"
+                                        id="dateInput" [(ngModel)]="book.date" name="date" required>
+                                    <button class="btn btn-info btn-block my-4" type="submit">Book Wash</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+</head>
+
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex">
+        <div class="logo mr-auto">
+            <a ><img src="../assets/images/logo.jpg" alt="" class="img-fluid"></a>
+        </div>
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a routerLink="/admin">Home</a></li>
+                <li><a routerLink="/addwasher">Add Washer</a></li>
+                <li><a routerLink="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="body"> <br>
+    <div class="container">
+
+        <div style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Add Plan</div>
+                </div>
+                <div class="panel-body">
+                    <form (ngSubmit)="addPlan()" #planForm="ngForm" class="form-horizontal">
+                        <div class="form-group required">
+                            <label class="control-label col-md-4 ">Name:<span>*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  form-control" name="name" [(ngModel)]="plan.planName"
+                                    placeholder="Enter Plane Name" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label col-md-4  ">Price<span>*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" [(ngModel)]="plan.price"
+                                    name="price" placeholder="Enter Price" style="margin-bottom: 10px"
+                                    type="number" />
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label col-md-4  ">Duration<span>*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" name="duration"
+                                    [(ngModel)]="plan.duration" placeholder="Enter Time in min."
+                                    style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">Description<span>*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <textarea class="input-md textinput textInput form-control" name="description"
+                                    [(ngModel)]="plan.description" placeholder="Enter Description" rows="4"
+                                    style="margin-bottom: 10px" type="text" ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="aab controls col-md-4 "></div>
+                            <div class="controls col-md-8 ">
+                                <input type="submit" value="Add Plan" class="btn btn-primary btn btn-info">
+
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

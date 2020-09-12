@@ -1,0 +1,92 @@
+<div class="container-fluid">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Sign Up</h3>
+                <div class="d-flex justify-content-end social_icon">
+					<span><a href="https://www.facebook.com/login"><i class="fab fa-facebook"></i></a></span>
+				</div>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="registerNewUser()" #userForm="ngForm">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="email" [(ngModel)]="user.email"
+                            name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                            #email="ngModel" [class.is-invalid]="email.touched && email.invalid" />
+                        <div *ngIf="email.errors && email.touched">
+                            <div class="text-danger" *ngIf="email.errors?.required">
+                                Email is required
+                            </div>
+                            <div class="text-danger" *ngIf="email.errors?.pattern">
+                                Email format should be
+                                <small><b>john@abc.com</b></small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="password" [(ngModel)]="user.password"
+                            name="password" #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            [class.is-invalid]="password.touched && password.invalid" required />
+                        <div *ngIf="password.errors && password.touched">
+                            <div class="text-danger" *ngIf="password.errors?.required">Password is must</div>
+                            <div class="text-danger" *ngIf="password.errors?.pattern">Password should contain atleast
+                                one capital letter, number and must contain at least 8 characters</div>
+                        </div>
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="firstname" #firstname="ngModel"
+                                [(ngModel)]="user.firstName" placeholder="first name" required
+                                pattern="[a-zA-Z][a-zA-Z ]+"
+                                [class.is-invalid]="firstname.touched && firstname.invalid" />
+                            <div *ngIf="firstname.errors && firstname.touched">
+                                <div class="text-danger" *ngIf="firstname.errors?.required">
+                                    First Name is required
+                                </div>
+                                <div class="text-danger" *ngIf="firstname.errors?.pattern">
+                                    Only alphabets allowed
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="user.lastName"
+                            name="lastname" #lastname="ngModel" pattern="[a-zA-Z][a-zA-Z ]+" required
+                            [class.is-invalid]="lastname.touched && lastname.invalid" />
+                        <div *ngIf="lastname.errors && lastname.touched">
+                            <div class="text-danger" *ngIf="lastname.errors?.required">
+                                 Last Name is required
+                            </div>
+                            <div class="text-danger" *ngIf="lastname.errors?.pattern">
+                                Only alphabets allowed
+                            </div>
+                        </div>
+                    </div>  <br>               
+                    <div class="form-group">
+                        <input type="submit" class="form-control" value="Register" class="btn float-right login_btn" [disabled]="userForm.form.invalid">
+                        
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Log in to existing account<a routerLink="/login">Click</a>
+				</div>
+               
+            </div> -->
+        </div>
+    </div>
+</div>

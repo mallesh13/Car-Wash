@@ -1,0 +1,22 @@
+#bgf{
+    background-color: white;
+    height: 100%;
+}
+
+.button {
+    
+    border: black;
+    color: rgb(0, 0, 0);
+    padding: 0px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+   
+    cursor: pointer;
+  }
+
+  .button3 {
+      background-color: rgb(94, 255, 0);
+      border: black;
+}

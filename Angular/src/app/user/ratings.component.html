@@ -1,0 +1,41 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+</head>
+<div id="bgv"><br><br>
+    <div class="container">
+    <div class="col-md-7" style="margin-left: 6cm;">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color: rgb(118, 119, 116);">
+                <div class="row">
+                    <div class="col-md-8 text-left">
+                        <div class="huge" style="font-size:40px;"></div>
+                        <h4 style="color: rgb(255, 255, 255);">Ratings And Reviews</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer" style="height:345px">
+                <form (ngSubmit)="ratings()" #acceptForm="ngForm">
+                    <p style="font-weight: bold;">Give Rating:</p>
+                    <div class="star-rating"> 
+                        <input type="radio" id="5-stars" name="rating"  [(ngModel)]="feedback.rating" value="5" />
+                        <label for="5-stars" class="star">&#9733;</label>
+                        <input type="radio" id="4-stars" name="rating"  [(ngModel)]="feedback.rating" value="4" />
+                        <label for="4-stars" class="star">&#9733;</label>
+                        <input type="radio" id="3-stars" name="rating" [(ngModel)]="feedback.rating"  value="3" />
+                        <label for="3-stars" class="star">&#9733;</label>
+                        <input type="radio" id="2-stars" name="rating"  [(ngModel)]="feedback.rating"  value="2" />
+                        <label for="2-stars" class="star">&#9733;</label>
+                        <input type="radio" id="1-star" name="rating"  [(ngModel)]="feedback.rating" value="1" />
+                        <label for="1-star" class="star">&#9733;</label>
+                      </div>
+                      <p style="font-weight: bold;">Comments:</p>
+                      <textarea  id="comments" type="text" class="form-control mb-3" rows="5" [(ngModel)]="feedback.comments" name="comments"></textarea>
+                    <button class="btn btn-info my-4" style="float: right;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

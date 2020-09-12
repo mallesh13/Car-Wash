@@ -1,0 +1,78 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex">
+        <div class="logo mr-auto">
+            <a href="#"><img src="../assets/images/logo.jpg" alt="" class="img-fluid"></a>
+        </div>
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a routerLink="/admin">Home</a></li>
+                <li><a routerLink="/addwasher">Add Washer</a></li>
+                <li><a routerLink="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="bob">
+    <div class="container">
+
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Add Washer</div>
+                </div>
+                <div class="panel-body">
+                    <form  (ngSubmit)="addNewWasher()" #washerForm="ngForm" class="form-horizontal">
+                        <div  class="form-group required">
+                            <label  class="control-label col-md-4 "> E-mail<span
+                                    >*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md emailinput form-control" name="email" [(ngModel)]="washer.email"
+                                    placeholder="email address" style="margin-bottom: 10px" type="email" />
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label  class="control-label col-md-4  ">Password<span
+                                    >*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" [(ngModel)]="washer.password"
+                                    name="password" placeholder="Create a password" style="margin-bottom: 10px"
+                                    type="password" />
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label  class="control-label col-md-4  "> full name<span
+                                   >*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control"  name="name" [(ngModel)]="washer.name"
+                                    placeholder="Frist name and Last name" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField"> contact number<span
+                                    >*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" name="phoneNumber" [(ngModel)]="washer.phoneNumber"
+                                    placeholder="Phone Number" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="aab controls col-md-4 "></div>
+                            <div class="controls col-md-8 ">
+                                <input type="submit" value="Add" class="btn btn-primary btn btn-info" >
+                                
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

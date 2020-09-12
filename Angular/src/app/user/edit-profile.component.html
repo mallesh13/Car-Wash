@@ -1,0 +1,50 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<div id="bgg"><br>
+    <div class="container" >
+        <div class="panel" style="background-color: black;width: 50%;margin-left: 7cm;">
+            <div class="panel-heading" style="color: white;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-user" style="font-size:60px;margin-left: 2cm;"></i>
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <div class="huge" style="font-size:30px">
+                        <div>Welcome {{user.firstName}}</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer" style="height:380px">
+                <div class="panel-body">
+                <form  #Form="ngForm" class="form-horizontal" >
+                    <div  class="form-group required" >
+                        <label  class="control-label col-md-4 "> E-mail :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  form-control" name="email" style="margin-bottom: 10px" type="email" value={{user.email}} disabled/>
+                        </div>
+                    </div>
+                    <div  class="form-group required" >
+                        <label  class="control-label col-md-4 ">First Name :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  form-control" name="firstName" style="margin-bottom: 10px" type="text" value={{user.firstName}} disabled/>
+                        </div>
+                    </div>
+                    <div  class="form-group required" >
+                        <label  class="control-label col-md-4 ">Last Name :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  form-control" name="lastName" style="margin-bottom: 10px" type="text" value={{user.lastName}} disabled/>
+                        </div>
+                    </div>
+                    <div  class="form-group required" >
+                        <label  class="control-label col-md-4 ">Password :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  form-control" id="password" style="margin-bottom: 10px" type="password" value={{user.password}} />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
