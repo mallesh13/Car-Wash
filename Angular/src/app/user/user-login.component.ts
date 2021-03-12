@@ -21,12 +21,14 @@ export class LoginComponent {
   checkLogin() {
     let email = (<HTMLInputElement>document.getElementById("email")).value;
     let password = (<HTMLInputElement>document.getElementById("password")).value;
+    alert("1");
     if (email == 'admin' && password == 'password') {
       this.invalidLogin = this.loginservice.adminauthenticate(true, email);
       this.router.navigate(['/admin'])
     }
-    else {
+     
       this.userService.userLogin(email, password).subscribe((data) => {
+        alert("2");
         // if(data!=null) {
 
         //     if (email=='admin'&& password=='password') {
@@ -44,6 +46,6 @@ export class LoginComponent {
 
       })
 
-    }
+    
   }
 }

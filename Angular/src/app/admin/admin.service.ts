@@ -19,7 +19,7 @@ export class AdminService {
     constructor(private http: HttpClient) { }
 
     addNewWasher(washer: WasherProfile): Observable<WasherProfile> {
-        alert(washer);
+       // alert(washer);
         return this.http.post<WasherProfile>(this.washer + "/addwasher", washer);
     }
 

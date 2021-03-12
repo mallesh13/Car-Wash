@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.carwash.user.dao.BookingDao;
@@ -39,16 +40,22 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserProfile createProfile(UserProfile profile) {
-
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		String encodedpassword=encoder.encode(profile.getPassword());
+		profile.setPassword(encodedpassword);
 		return dao.save(profile);
 
 	}
 
 	@Override
 	public UserProfile userLogin(String email, String password) {
+		System.out.println(password);
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		
 		Query query = new Query();
 		UserProfile profile = template.findOne(query.addCriteria(Criteria.where("email").is(email)), UserProfile.class);
-		if (profile != null && profile.getPassword().equals(password)) {
+		
+		if (profile != null && encoder.matches(password,profile.getPassword())) {
 			return profile;
 		} else
 			return null;
